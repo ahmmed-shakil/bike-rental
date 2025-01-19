@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  line-height: 1.5;
+
+  --primary: #ff5000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-white;
+}
+
+/* Navbar */
+.nav_item {
+  @apply py-1 px-2 font-bold cursor-pointer;
+}
+
+.nav_item:hover {
+  @apply text-primary;
+}
+
+.nav_item_active {
+  @apply border-2 border-t-0 border-x-0 border-b-primary py-1 px-2 font-bold cursor-pointer text-primary;
+}
+/* Navbar */
+
+.ant-select-selection-item {
+  color: #0b0e14;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.ant-drawer-close {
+  @apply dark:text-white;
+}
