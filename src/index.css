@@ -24,9 +24,14 @@
 
 body {
   font-family: "Quicksand", sans-serif;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  overflow: auto; /* Enable scrolling */
   @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-white;
 }
-
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  overflow: auto; /* Enable scrolling */
+}
 /* Navbar */
 .nav_item {
   @apply py-1 px-2 font-bold cursor-pointer;
@@ -49,4 +54,33 @@ body {
 
 .ant-drawer-close {
   @apply dark:text-white;
+}
+
+.review {
+  background-image: url("./assets/images/bg/reviews.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.snap-container {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll; /* Add overflow to enable vertical scrolling */
+}
+
+.snap-section {
+  height: 100vh;
+  scroll-snap-align: start; /* Snap sections to the top */
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .snap-section {
+    height: auto;
+  }
+  .snap-container {
+    scroll-snap-type: none;
+    height: auto;
+  }
 }

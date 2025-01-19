@@ -2,8 +2,9 @@ import Switcher from "../../../components/dark-mode";
 import { NavLink } from "react-router";
 import { routes } from "../../../routes";
 import MobileMenuDrawer from "../../../components/shared/menu-drawer";
+import React from "react";
 
-const NavbarHome = () => {
+const NavbarHome: React.FC = () => {
   return (
     <div className=" fixed top-0 left-0 w-full py-7 bg-black bg-opacity-50  z-20">
       <div className="hidden md:grid grid-cols-2 items-center justify-between gap-3 max-w-7xl mx-auto">

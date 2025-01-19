@@ -14,8 +14,7 @@ const MainLayout = () => {
       <main className="min-h-[70vh]">
         <Outlet />
       </main>
-
-      <Footer />
+      {location.pathname !== "/" && <Footer />}
     </>
   );
 };

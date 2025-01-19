@@ -1,11 +1,23 @@
+import React from "react";
 import Hero from "./components/Hero";
+import BrandsHome from "./components/brands";
+import FeaturedBikes from "./components/featured";
+import ReviewCarousel from "./components/review";
+import WhyChooseUs from "./components/why-us";
+import CouponsDiscounts from "./components/coupon-discount";
+import ContactHome from "./components/contact";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
-    <>
+    <div className="snap-container">
       <Hero />
-      <div className=" h-[100vh]"></div>
-    </>
+      <BrandsHome />
+      <FeaturedBikes />
+      <ReviewCarousel />
+      <WhyChooseUs />
+      <CouponsDiscounts />
+      <ContactHome />
+    </div>
   );
 };
 

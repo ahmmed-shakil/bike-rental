@@ -77,7 +77,7 @@ const Footer = () => {
       </Row>
 
       {/* Footer Bottom Section */}
-      <Row className=" py-4">
+      <Row className=" pt-4">
         <Col span={24} className="text-center text-muted">
           &copy; {new Date().getFullYear()} ThrottleX. All rights reserved.
         </Col>
