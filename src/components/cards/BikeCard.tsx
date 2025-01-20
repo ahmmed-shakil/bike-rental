@@ -1,8 +1,9 @@
 import { Carousel } from "antd";
 import React from "react";
 import image from "../../assets/images/models/ktm.webp";
-import { Fuel, Gauge } from "lucide-react";
+import { Cog, Disc, Fuel, Gauge, Users } from "lucide-react";
 import { StarFilled } from "@ant-design/icons";
+import { Link } from "react-router";
 
 type Bike = {
   modelName: string;
@@ -46,43 +47,37 @@ const BikeCard: React.FC<{ bike: Bike }> = ({ bike }) => {
         </div>
         <h3 className="text-lg font-bold mt-1 ">{bike.modelName}</h3>
 
-        <div className="flex items-center gap-2 my-1">
-          <div className="flex items-center gap-1">
-            <div className="h-2 w-2 rounded-full bg-gray-500"></div>
-            <p className="text-gray-700 dark:text-white text-md">{bike.seat}</p>
+        <div className="grid grid-cols-2 gap-2 mb-4 mt-2">
+          <div className="flex items-center gap-2">
+            <Users size={16} className="text-gray-500" />
+            <span className="text-sm">{bike.seat}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <div className="h-2 w-2 rounded-full bg-gray-500"></div>
-            <p className="text-gray-700 dark:text-white text-md">
-              {bike.cc} cc
-            </p>
+          <div className="flex items-center gap-2">
+            <Gauge size={16} className="text-gray-500" />
+            <span className="text-sm">{bike.cc} cc</span>
           </div>
-          {bike?.abs && (
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 rounded-full bg-gray-500"></div>
-              <p className="text-gray-700 dark:text-white text-md">ABS</p>
+          {bike.abs && (
+            <div className="flex items-center gap-2">
+              <Disc size={16} className="text-gray-500" />
+              <span className="text-sm">ABS</span>
             </div>
           )}
-          {bike?.gear && (
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 rounded-full bg-gray-500"></div>
-              <p className="text-gray-700 dark:text-white text-md">Gears</p>
+          {bike.gear && (
+            <div className="flex items-center gap-2">
+              <Cog size={16} className="text-gray-500" />
+              <span className="text-sm">Gears</span>
             </div>
           )}
         </div>
 
-        <div className="flex items-center justify-between gap-2 my-1">
-          <div className="flex items-center gap-1">
-            <Gauge className="text-gray-700 dark:text-white text-sm" />
-            <p className="text-gray-700 dark:text-white text-md">
-              {bike.topSpeed}
-            </p>
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-2">
+            <Gauge size={18} className="text-gray-600" />
+            <span className="text-sm font-medium">{bike.topSpeed}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Fuel className="text-gray-700 dark:text-white text-md" />
-            <p className="text-gray-700 dark:text-white text-md">
-              {bike.mileage}
-            </p>
+          <div className="flex items-center gap-2">
+            <Fuel size={18} className="text-gray-600" />
+            <span className="text-sm font-medium">{bike.mileage}</span>
           </div>
         </div>
       </div>
@@ -98,9 +93,11 @@ const BikeCard: React.FC<{ bike: Bike }> = ({ bike }) => {
             BDT {bike.perDayRent}/day
           </p>
         </div>
-        <button className="bg-primary w-full text-white dark:text-white px-4 py-2 rounded-md hover:bg-orange-600">
-          View Details
-        </button>
+        <Link to={`/bike-details/1`}>
+          <button className="bg-primary w-full text-white dark:text-white px-4 py-2 rounded-md hover:bg-orange-600">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );

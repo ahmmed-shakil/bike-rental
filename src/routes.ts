@@ -7,4 +7,8 @@ export const routes = [
     title: "About",
     path: "/about",
   },
+  {
+    title: "Dashboard",
+    path: "/dashboard",
+  },
 ];

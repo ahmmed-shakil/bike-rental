@@ -11,7 +11,7 @@ const MainLayout = () => {
       {/* Render Navbar only if the current path is not '/' */}
       {location.pathname !== "/" && <Navbar />}
 
-      <main className="min-h-[70vh]">
+      <main className="min-h-[70vh] mt-28">
         <Outlet />
       </main>
       {location.pathname !== "/" && <Footer />}

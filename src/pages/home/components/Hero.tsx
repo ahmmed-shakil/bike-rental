@@ -4,6 +4,7 @@ import NavbarHome from "./NavbarHome";
 import { SearchOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import dayjs from "dayjs";
+import { Calendar, MapPin } from "lucide-react";
 
 const Hero: React.FC = () => {
   const { RangePicker } = DatePicker;
@@ -31,7 +32,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full snap-section">
+    <div className="relative w-full snap-section min-h-screen">
       <NavbarHome />
       {/* Video background */}
       <video
@@ -52,16 +53,19 @@ const Hero: React.FC = () => {
         <div className="bg-primary p-3 rounded-md">
           <Space className="flex flex-col md:flex-row justify-between items-end gap-4">
             <div className="flex-1 text-start">
-              <h6 className="mb-2">Destination</h6>
+              <h6 className="mb-2 flex items-center gap-1 font-semibold">
+                <MapPin />
+                <span>Pickup Location</span>
+              </h6>
               <Select
                 status="warning"
                 showSearch
                 className="h-14 w-full min-w-60 text-lg rounded-lg border-0 outline-0"
                 allowClear
-                placeholder="Select Destination"
+                placeholder="Select Pickup Location"
                 optionFilterProp="label"
                 onChange={onChange}
-                title="Select Destination"
+                title="Select Pickup Location"
                 onSearch={onSearch}
                 options={[
                   {
@@ -85,7 +89,10 @@ const Hero: React.FC = () => {
               />
             </div>
             <div className="flex-1 text-start">
-              <h6 className="mb-2">Date Range</h6>
+              <h6 className="mb-2 flex items-center gap-1 font-semibold">
+                <Calendar />
+                <span>Select Dates</span>
+              </h6>
               <RangePicker
                 className="py-4 text-lg rounded-lg w-full"
                 id={{

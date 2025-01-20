@@ -23,7 +23,7 @@ const ContactUs: React.FC = () => {
       name="contact-us"
       layout="vertical"
       onFinish={onFinish}
-      className="mt-10 p-4 rounded-lg shadow-sm bg-white dark:bg-slate-800"
+      className=" p-4 rounded-lg shadow-sm bg-white dark:bg-slate-800"
       autoComplete="off"
       onFinishFailed={onFinishFailed}
     >
