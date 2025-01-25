@@ -16,7 +16,7 @@ const ContactHome = () => {
           />
           <div className=" grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4 mt-6">
             <ContactUs />
-            <div className=" font-semibold bg-white dark:bg-slate-800 h-full flex-col justify-center items-center p-4 md:p-8 rounded-md">
+            <div className=" font-semibold bg-white dark:bg-slate-800 h-full flex-col justify-center items-center p-10 rounded-md">
               <h5 className=" font-bold text-xl">We're Here to Help!</h5>
               <p className=" text-md my-4">
                 Whether you have questions about our services, need technical
