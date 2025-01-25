@@ -1,6 +1,6 @@
 import React from "react";
 import { Select } from "antd";
-import { MapPin } from "lucide-react";
+// import { MapPin } from "lucide-react";
 
 interface SelectPickupLocationComponentProps {
   value: string | null;
@@ -15,10 +15,10 @@ const SelectPickupLocationComponent: React.FC<
 > = ({ onChange, onSearch, placeholder, options }) => {
   return (
     <div className="flex-1 text-start">
-      <h6 className="mb-2 flex items-center gap-1 font-semibold">
+      {/* <h6 className="mb-2 flex items-center gap-1 font-semibold">
         <MapPin />
         <span>Pickup Location</span>
-      </h6>
+      </h6> */}
       <Select
         status="warning"
         showSearch

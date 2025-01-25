@@ -2,7 +2,7 @@ import React from "react";
 import { DatePicker } from "antd";
 import type { RangePickerProps } from "antd/es/date-picker";
 import type { Dayjs } from "dayjs";
-import { Calendar } from "lucide-react";
+// import { Calendar } from "lucide-react";
 
 interface DateRangePickerComponentProps {
   value: [Dayjs | null, Dayjs | null] | null;
@@ -19,10 +19,10 @@ const DateRangePickerComponent: React.FC<DateRangePickerComponentProps> = ({
 
   return (
     <div className="flex-1 text-start">
-      <h6 className="mb-2 flex items-center gap-1 font-semibold">
+      {/* <h6 className="mb-2 flex items-center gap-1 font-semibold">
         <Calendar />
         <span>Select Dates</span>
-      </h6>
+      </h6> */}
       <RangePicker
         className="py-4 text-lg rounded-lg w-full"
         id={{

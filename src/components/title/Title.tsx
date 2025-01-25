@@ -9,7 +9,7 @@ interface TitleProps {
 const Title: React.FC<TitleProps> = ({ title, textClass, lineClass }) => {
   return (
     <div>
-      <h4 className={`font-semibold text-2xl md:text-3xl ${textClass}`}>
+      <h4 className={`font-semibold text-xl md:text-2xl ${textClass}`}>
         {title}
       </h4>
       <hr className={`w-24 h-1 mt-4 bg-primary rounded-md ${lineClass}`} />
