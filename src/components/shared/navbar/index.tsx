@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     // <div className=" sticky top-0 z-10 py-7 ">
-    <div className=" fixed top-0 left-0 w-full py-7 bg-white dark:bg-slate-800 bg-opacity-50  z-20">
+    <div className=" fixed top-0 left-0 w-full py-7 bg-black  md:bg-white dark:bg-slate-800 bg-opacity-50  z-20">
       <div className=" hidden md:grid grid-cols-2 items-center justify-between gap-3 max-w-7xl mx-auto">
         {/* LOGO */}
         <h6
