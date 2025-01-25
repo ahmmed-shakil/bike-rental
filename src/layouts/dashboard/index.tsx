@@ -2,9 +2,10 @@ import { Drawer, Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import DashboardHeader from "./components/DashboardHeader";
-import { Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import Sidebar from "./components/Sidebar";
 import React from "react";
+import { sidebarRoutesAdmin } from "../../routes";
 
 const DashboardLayout = () => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -28,13 +29,37 @@ const DashboardLayout = () => {
         <Drawer
           closable
           destroyOnClose
+          title={
+            <h6 className=" font-bold text-2xl md:text-4xl dark:text-white">
+              <span>Throttle</span>
+              <span className=" text-primary">X</span>
+            </h6>
+          }
           placement="left"
           className=" dark:bg-slate-800"
           open={open}
           loading={loading}
           onClose={() => setOpen(false)}
         >
-          <Sidebar />
+          {/* <Sidebar /> */}
+          <div className="flex flex-col items-center text-md md:text-lg">
+            {sidebarRoutesAdmin?.map(
+              (r: { title: string; path: string }, i: number) => (
+                <NavLink
+                  key={i}
+                  to={r.path}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav_item_active mb-4"
+                      : "nav_item text-slate-900 dark:text-white mb-4"
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  {r.title}
+                </NavLink>
+              )
+            )}
+          </div>
         </Drawer>
         <Sider
           width="15%"
