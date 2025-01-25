@@ -32,7 +32,7 @@ const MobileMenuDrawer: React.FC = () => {
           </h6>
         </Col>
         <Col span={12} className=" flex justify-end text-white gap-4">
-          <Switcher />
+          <Switcher showWHite={true} />
           <BarsOutlined className=" text-3xl" onClick={showLoading} />
         </Col>
       </Row>
