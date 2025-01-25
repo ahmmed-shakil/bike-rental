@@ -47,7 +47,10 @@ const Sidebar: React.FC = () => {
         }`}
       >
         {/* LOGO */}
-        <h6 className="text-center font-bold text-3xl py-4">
+        <h6
+          className="text-center font-bold text-3xl py-4 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           Throttle
           <span
             className={`${isDarkMode ? "text-primary-dark" : "text-primary"}`}

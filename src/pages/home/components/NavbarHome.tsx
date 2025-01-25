@@ -1,15 +1,19 @@
 import Switcher from "../../../components/dark-mode";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { routes } from "../../../routes";
 import MobileMenuDrawer from "../../../components/shared/menu-drawer";
 import React from "react";
 
 const NavbarHome: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className=" fixed top-0 left-0 w-full py-7 bg-black bg-opacity-50  z-20">
       <div className="hidden md:grid grid-cols-2 items-center justify-between gap-3 max-w-7xl mx-auto">
         {/* LOGO */}
-        <h6 className=" font-bold text-2xl md:text-4xl text-white">
+        <h6
+          className=" font-bold text-2xl md:text-4xl text-white cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <span>Throttle</span>
           <span className=" text-primary">X</span>
         </h6>

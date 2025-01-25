@@ -40,7 +40,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerComponentProps> = ({
         }}
         style={{
           fontSize: "16px",
-          borderColor: "#f97316",
+          // borderColor: "#f97316",
           fontWeight: "bold",
         }}
       />

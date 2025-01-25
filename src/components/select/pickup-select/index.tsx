@@ -20,7 +20,7 @@ const SelectPickupLocationComponent: React.FC<
         <span>Pickup Location</span>
       </h6> */}
       <Select
-        status="warning"
+        // status="warning"
         showSearch
         className="h-14 w-full min-w-60 text-lg rounded-lg border-0 outline-0"
         allowClear
