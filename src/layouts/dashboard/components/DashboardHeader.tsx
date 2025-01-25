@@ -5,7 +5,11 @@ import { HomeFilled } from "@ant-design/icons";
 import { useNavigate } from "react-router";
 import { List } from "lucide-react";
 
-const DashboardHeader: React.FC = ({ showSidebar }) => {
+interface DashboardHeaderProps {
+  showSidebar: () => void; // Assuming showSidebar is a function
+}
+
+const DashboardHeader: React.FC<DashboardHeaderProps> = ({ showSidebar }) => {
   const navigate = useNavigate();
   return (
     <div className=" bg-white py-3 text-slate-800 dark:text-white dark:bg-slate-800 px-6">
