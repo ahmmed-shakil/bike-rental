@@ -78,7 +78,7 @@ const BikeDetails: React.FC = () => {
             key={i}
             src={img?.url}
             height={300}
-            className={`${
+            className={`h-[90px] md:h-[300px] w-full object-cover ${
               i == 0
                 ? "rounded-tl-md"
                 : i == 1

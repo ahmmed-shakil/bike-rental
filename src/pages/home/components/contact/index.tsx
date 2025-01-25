@@ -25,30 +25,30 @@ const ContactHome = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="border border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
-                    <MailOutlined className="text-white text-lg" />
+                  <div className="border border-slate-800 dark:border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
+                    <MailOutlined className=" text-lg" />
                   </div>
                   <div>
                     <h4 className="text-md font-semibold">Email Us</h4>
-                    <p className="text-gray-200">support@pulsepoint.com</p>
+                    <p className="">support@pulsepoint.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="border border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
-                    <MessageOutlined className="text-white text-lg" />
+                  <div className="border border-slate-800 dark:border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
+                    <MessageOutlined className=" text-lg" />
                   </div>
                   <div>
                     <h4 className="text-md font-semibold">Chat with Us</h4>
-                    <p className="text-gray-200">Available 24/7</p>
+                    <p className="">Available 24/7</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="border border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
-                    <UserOutlined className="text-white text-lg" />
+                  <div className="border border-slate-800 dark:border-white w-10 h-10 flex items-center justify-center p-4 rounded-full">
+                    <UserOutlined className=" text-lg" />
                   </div>
                   <div>
                     <h4 className="text-md font-semibold">Visit Us</h4>
-                    <p className="text-gray-200">123 Fitness St, Gym City</p>
+                    <p className="">123 Fitness St, Gym City</p>
                   </div>
                 </div>
               </div>

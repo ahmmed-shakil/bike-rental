@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import { RangePickerProps } from "antd/es/date-picker";
 import SelectPickupLocationComponent from "../../../components/select/pickup-select";
 import DateRangePickerComponent from "../../../components/date-picker/range-picker";
+import { Calendar, MapPin } from "lucide-react";
 
 const Hero: React.FC = () => {
   const [destination, setDestination] = useState<string | null>(null);
@@ -63,24 +64,36 @@ const Hero: React.FC = () => {
         <p className="text-xl sm:text-2xl mb-8">Discover our amazing bikes!</p>
         <div className="bg-primary p-3 rounded-md">
           <Space className="flex flex-col md:flex-row justify-between items-end gap-4">
-            <SelectPickupLocationComponent
-              value={destination}
-              onChange={onChange}
-              onSearch={onSearch}
-              placeholder="Select Pickup Location"
-              options={[
-                { value: "jack", label: "Jack" },
-                { value: "lucy", label: "Lucy" },
-                { value: "tom", label: "Tom" },
-              ]}
-            />
-            <DateRangePickerComponent
-              value={dateRange}
-              onChange={onRangeChange}
-              disabledDate={disabledDate}
-            />
+            <div>
+              <h6 className="mb-2 flex items-center tex-sm md:text-md gap-1 font-semibold">
+                <MapPin />
+                <span>Select Pickup Location</span>
+              </h6>
+              <SelectPickupLocationComponent
+                value={destination}
+                onChange={onChange}
+                onSearch={onSearch}
+                placeholder="Select Pickup Location"
+                options={[
+                  { value: "jack", label: "Jack" },
+                  { value: "lucy", label: "Lucy" },
+                  { value: "tom", label: "Tom" },
+                ]}
+              />
+            </div>
+            <div>
+              <h6 className="mb-2 flex items-center tex-sm md:text-md gap-1 font-semibold">
+                <Calendar />
+                <span>Select Dates</span>
+              </h6>
+              <DateRangePickerComponent
+                value={dateRange}
+                onChange={onRangeChange}
+                disabledDate={disabledDate}
+              />
+            </div>
             <div className="flex-shrink-0">
-              <button className="w-full mt-3 md:mt-0 md:w-auto px-6 py-3 border text-lg bg-white text-primary rounded-lg hover:scale-105 font-semibold transition duration-300">
+              <button className="w-full mt-3 md:mt-0 md:w-auto md:px-6 md:py-3 py-1 px-3 border text-lg bg-white text-primary rounded-lg hover:scale-105 font-semibold transition duration-300">
                 <SearchOutlined />
               </button>
             </div>

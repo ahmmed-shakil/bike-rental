@@ -24,7 +24,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerComponentProps> = ({
         <span>Select Dates</span>
       </h6> */}
       <RangePicker
-        className="py-4 text-lg rounded-lg w-full"
+        className="py-2 md:py-4 text-lg rounded-lg w-full"
         id={{
           start: "startInput",
           end: "endInput",

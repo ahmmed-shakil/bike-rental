@@ -2,7 +2,7 @@ import { BarsOutlined } from "@ant-design/icons";
 import { Col, Drawer, Row } from "antd";
 import React from "react";
 import { routes } from "../../../routes";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import Switcher from "../../dark-mode";
 
 const MobileMenuDrawer: React.FC = () => {
@@ -18,11 +18,15 @@ const MobileMenuDrawer: React.FC = () => {
       setLoading(false);
     }, 2000);
   };
+  const navigate = useNavigate();
   return (
     <div>
       <Row className=" mx-4 z-20 items-center justify-between">
         <Col span={12}>
-          <h6 className=" font-bold text-2xl md:text-4xl text-white">
+          <h6
+            className=" font-bold text-2xl md:text-4xl text-white"
+            onClick={() => navigate("/")}
+          >
             <span>Throttle</span>
             <span className=" text-primary">X</span>
           </h6>
