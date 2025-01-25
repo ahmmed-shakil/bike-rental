@@ -1,48 +1,36 @@
 import { Layout } from "antd";
-import { Content, Footer, Header } from "antd/es/layout/layout";
+import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
-import React from "react";
-import Navbar from "../../components/shared/navbar";
 import DashboardHeader from "./components/DashboardHeader";
 import { Outlet } from "react-router";
+import Sidebar from "./components/Sidebar";
 
 const DashboardLayout = () => {
-  const contentStyle: React.CSSProperties = {
-    textAlign: "center",
-    minHeight: 120,
-    lineHeight: "120px",
-    color: "#fff",
-    backgroundColor: "#0958d9",
-  };
-
-  const siderStyle: React.CSSProperties = {
-    textAlign: "center",
-    lineHeight: "120px",
-    color: "#fff",
-    backgroundColor: "#1677ff",
-  };
-
-  const footerStyle: React.CSSProperties = {
-    textAlign: "center",
-    color: "#fff",
-    backgroundColor: "#4096ff",
-  };
-
   return (
     <Layout>
       {/* <Header> */}
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       {/* </Header> */}
 
-      <Layout>
-        <Sider width="20%" style={siderStyle}>
-          Sider
+      <Layout style={{ height: "100vh" }}>
+        <Sider
+          width="15%"
+          className="bg-white border-r shadow-md border-t h-screen dark:bg-slate-800"
+          style={{
+            position: "sticky",
+            top: 0, // Ensure sticky positioning works
+            zIndex: 100, // Adjust z-index if necessary
+          }}
+        >
+          <Sidebar />
         </Sider>
-        <Content style={contentStyle}>
+
+        <Content className=" overflow-y-scroll">
+          <DashboardHeader />
           <Outlet />
         </Content>
       </Layout>
-      <Footer style={footerStyle}>Footer</Footer>
+      {/* <Footer style={footerStyle}>Footer</Footer> */}
     </Layout>
   );
 };

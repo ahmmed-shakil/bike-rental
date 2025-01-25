@@ -24,7 +24,7 @@ const BikeCard: React.FC<{ bike: Bike }> = ({ bike }) => {
     <div className="rounded-md shadow-md border hover:shadow-xl h-full flex flex-col">
       {/* Carousel */}
       <Carousel effect="scrollx" arrows className="rounded-t-md">
-        {bike?.images?.map((img: string, i: number) => (
+        {bike?.images?.map((_img: string, i: number) => (
           <div key={i}>
             <img
               src={image}

@@ -75,10 +75,10 @@ const ContactUs: React.FC = () => {
       >
         <Input.TextArea
           placeholder="Your Message"
-          rows={4}
+          rows={2}
           variant="outlined"
           size="large"
-          className=" invalid:bg-transparent text-md bg-transparent focus:bg-transparent hover:bg-transparent hover:border-primary focus:border-primary dark:text-white placeholder:text-gray-400"
+          className=" max-h-32 invalid:bg-transparent text-md bg-transparent focus:bg-transparent hover:bg-transparent hover:border-primary focus:border-primary dark:text-white placeholder:text-gray-400"
         />
       </Form.Item>
 

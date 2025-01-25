@@ -56,7 +56,7 @@ const benefits: Benefit[] = [
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-16 snap-section flex items-center max-w-7xl mx-auto">
+    <section className="py-16 md:pt-28 snap-section flex items-center max-w-7xl mx-auto">
       <div className="container mx-auto px-4">
         <Title title=" Why Choose Us" />
         <div className="grid grid-cols-1 md:grid-cols-2 mt-10 lg:grid-cols-3 gap-8">

@@ -92,7 +92,7 @@ const FeaturedBikes: React.FC = () => {
     },
   ];
   return (
-    <div className=" snap-section py-10 max-w-7xl mx-auto flex flex-col justify-center px-4">
+    <div className=" snap-section py-10 md:pt-28 max-w-7xl mx-auto flex flex-col justify-center px-4">
       <div className=" flex items-center justify-between">
         <Title title="Featured Bikes" />
         <button className=" bg-primary flex text-white p-2 rounded-md gap-3 px-3 hover:bg-orange-600">

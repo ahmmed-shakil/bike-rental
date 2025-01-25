@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import { useParams } from "react-router";
 import image from "../../assets/images/models/ktm.webp";
 import image2 from "../../assets/images/brands/honda.jpg";
-import { DatePicker, DatePickerProps, Image, Select } from "antd";
-import {
-  ColumnHeightOutlined,
-  LineHeightOutlined,
-  StarFilled,
-} from "@ant-design/icons";
+import { DatePickerProps, Image } from "antd";
+import { ColumnHeightOutlined, StarFilled } from "@ant-design/icons";
 import {
   Calendar,
   Check,
   Fuel,
   Gauge,
-  LucideWeight,
   MapPin,
   Rocket,
-  Weight,
   WeightIcon,
 } from "lucide-react";
 import ReviewSlider from "../../components/slider/ReviewSlider";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
+import DateRangePickerComponent from "../../components/date-picker/range-picker";
+import SelectPickupLocationComponent from "../../components/select/pickup-select";
+import { RangePickerProps } from "antd/es/date-picker";
 
 const BikeDetails: React.FC = () => {
   const { id } = useParams();
@@ -39,9 +36,9 @@ const BikeDetails: React.FC = () => {
       url: image,
     },
   ];
-  const { RangePicker } = DatePicker;
 
   const [destination, setDestination] = useState<string | null>(null);
+  console.log("🚀 ~ destination:", destination);
   const [dateRange, setDateRange] = useState<
     [dayjs.Dayjs | null, dayjs.Dayjs | null] | null
   >(null);
@@ -53,9 +50,20 @@ const BikeDetails: React.FC = () => {
     console.log("search:", value);
   };
 
-  const onRangeChange: DatePickerProps["onChange"] = (dates, dateStrings) => {
+  const onRangeChange: RangePickerProps["onChange"] = (
+    dates: [Dayjs | null, Dayjs | null] | null,
+    dateStrings: [string, string]
+  ) => {
+    console.log("🚀 ~ dateStrings:", dateStrings);
     if (dates) {
-      setDateRange([dates[0] as dayjs.Dayjs, dates[1] as dayjs.Dayjs]);
+      const [startDate, endDate] = dates;
+      if (startDate && endDate) {
+        setDateRange([startDate, endDate]);
+      } else {
+        setDateRange(null);
+      }
+    } else {
+      setDateRange(null);
     }
   };
 
@@ -63,9 +71,9 @@ const BikeDetails: React.FC = () => {
     return current && current < dayjs().endOf("day");
   };
   return (
-    <div className=" max-w-7xl mx-auto min-h-screen space-y-12 px-4">
+    <div className=" max-w-7xl mx-auto min-h-screen space-y-12 px-4 mt-28">
       <div className=" grid grid-cols-2 items-center gap-2">
-        {images?.map((img: unknown, i: number) => (
+        {images?.map((img: { url: string }, i: number) => (
           <Image
             key={i}
             src={img?.url}
@@ -211,60 +219,25 @@ const BikeDetails: React.FC = () => {
               <MapPin />
               <span>Pickup Location</span>
             </h6>
-            <Select
-              // status="warning"
-              showSearch
-              className="h-14 w-full min-w-60 text-lg rounded-lg border-0 outline-0"
-              allowClear
-              placeholder="Select Pickup Location"
-              optionFilterProp="label"
+            <SelectPickupLocationComponent
+              value={destination}
               onChange={onChange}
-              title="Select Pickup Location"
               onSearch={onSearch}
+              placeholder="Select Pickup Location"
               options={[
-                {
-                  value: "jack",
-                  label: "Jack",
-                },
-                {
-                  value: "lucy",
-                  label: "Lucy",
-                },
-                {
-                  value: "tom",
-                  label: "Tom",
-                },
+                { value: "jack", label: "Jack" },
+                { value: "lucy", label: "Lucy" },
+                { value: "tom", label: "Tom" },
               ]}
-              style={{
-                fontWeight: "bold",
-                fontSize: "16px",
-              }}
-              // options
             />
             <h6 className="mb-2 mt-4 flex items-center gap-1 font-semibold">
               <Calendar />
               <span>Date Range</span>
             </h6>
-            <RangePicker
-              className="py-4 text-lg rounded-lg w-full"
-              id={{
-                start: "startInput",
-                end: "endInput",
-              }}
+            <DateRangePickerComponent
               value={dateRange}
               onChange={onRangeChange}
               disabledDate={disabledDate}
-              onFocus={(_, info) => {
-                console.log("Focus:", info.range);
-              }}
-              onBlur={(_, info) => {
-                console.log("Blur:", info.range);
-              }}
-              style={{
-                fontSize: "16px",
-                // borderColor: "#f97316",
-                fontWeight: "bold",
-              }}
             />
             <div className=" mt-4">
               <div className=" grid grid-cols-2 items-center justify-between">

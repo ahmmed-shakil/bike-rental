@@ -84,7 +84,7 @@ const BrandsHome: React.FC = () => {
     <div className=" snap-section py-10 max-w-7xl mx-auto flex flex-col justify-center px-4">
       <Title title="Popular Brands From Our Collection" />
       <div className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 mt-10 gap-4">
-        {bikeBrands?.map((brand: BikeBrand, i: number) => (
+        {bikeBrands?.map((_brand: BikeBrand, i: number) => (
           <div key={i}>
             <img
               alt="example"

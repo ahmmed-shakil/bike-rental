@@ -1,4 +1,3 @@
-import React from "react";
 import Switcher from "../../dark-mode";
 import { NavLink } from "react-router";
 import { routes } from "../../../routes";

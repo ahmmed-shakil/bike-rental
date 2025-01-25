@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-primary">
       {/* Main Footer Section */}
-      <Row className="max-w-7xl mx-auto py-4 w-full items-center">
+      <Row className="max-w-7xl mx-auto py-1 w-full items-center">
         {/* Logo Section */}
         <Col
           xs={24}
@@ -77,7 +77,7 @@ const Footer = () => {
       </Row>
 
       {/* Footer Bottom Section */}
-      <Row className=" pt-4">
+      <Row className=" pt-2">
         <Col span={24} className="text-center text-muted">
           &copy; {new Date().getFullYear()} ThrottleX. All rights reserved.
         </Col>

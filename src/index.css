@@ -84,3 +84,11 @@ html {
     height: auto;
   }
 }
+
+.side_text {
+  color: black !important;
+}
+
+.table_darK {
+  background-color: red !important;
+}

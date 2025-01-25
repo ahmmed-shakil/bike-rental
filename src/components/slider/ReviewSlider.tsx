@@ -50,7 +50,7 @@ const ReviewSlider: React.FC = () => {
     <Carousel autoplay effect="scrollx" arrows>
       {reviews.map((review) => (
         <div key={review.id} className="px-10 pb-8 ">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 min-h-[45vh]">
             <div className="flex flex-col items-center mb-4">
               <img
                 src={image || "/placeholder.svg"}

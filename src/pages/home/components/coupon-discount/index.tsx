@@ -1,6 +1,6 @@
 import React from "react";
 import { Copy, Scissors, Tag } from "lucide-react";
-import { Button, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import Title from "../../../../components/title/Title";
 
 const CouponsDiscounts: React.FC = () => {
@@ -37,7 +37,7 @@ const CouponsDiscounts: React.FC = () => {
   };
 
   return (
-    <div className="snap-section max-w-7xl px-6 flex flex-col justify-center mx-auto pb-16">
+    <div className="md:pt-28 snap-section max-w-7xl px-6 flex flex-col justify-center mx-auto pb-16">
       <Title title="Exclusive Coupons & Discounts" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start justify-between mt-10">
