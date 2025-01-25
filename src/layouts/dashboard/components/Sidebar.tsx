@@ -2,14 +2,14 @@ import type React from "react";
 // import { sidebarRoutes, sidebarRoutesAdmin } from "../../../routes";
 import { sidebarRoutesAdmin } from "../../../routes";
 import { useLocation, useNavigate } from "react-router";
-import { ConfigProvider, Menu } from "antd";
+import { ConfigProvider, Menu, MenuTheme } from "antd";
 import { useGetCurrentTheme } from "../../../hooks/useGetCurrentTheme";
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const theme = useGetCurrentTheme();
+  const theme = useGetCurrentTheme() as MenuTheme;
 
   const handleMenuClick = (item: { key: string }) => {
     const route = sidebarRoutesAdmin
@@ -62,7 +62,7 @@ const Sidebar: React.FC = () => {
         <div className="w-full">
           <Menu
             mode="inline"
-            // theme={theme}
+            theme={theme}
             className={`w-full ${
               isDarkMode ? "bg-slate-800 text-white" : "bg-white text-slate-800"
             }`}
