@@ -16,7 +16,7 @@ const ReviewCarousel: React.FC = () => {
               title=" What Our Customers Say"
             />
           </div>
-          <ReviewSlider />
+          <ReviewSlider slidesPerPage={3} />
         </div>
       </div>
     </div>

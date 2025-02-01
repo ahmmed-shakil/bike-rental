@@ -1,6 +1,5 @@
 import Title from "../../../../components/title/Title";
 import ContactUs from "../../../../components/contact";
-import Footer from "../../../../components/shared/footer";
 import { MailOutlined, MessageOutlined, UserOutlined } from "@ant-design/icons";
 
 const ContactHome = () => {
@@ -56,9 +55,9 @@ const ContactHome = () => {
           </div>
         </div>
       </div>
-      <div className=" bg-white z-10 dark:bg-slate-800">
+      {/* <div className=" bg-white z-10 dark:bg-slate-800">
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 };

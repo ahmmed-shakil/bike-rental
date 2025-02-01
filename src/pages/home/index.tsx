@@ -6,6 +6,7 @@ import ReviewCarousel from "./components/review";
 import WhyChooseUs from "./components/why-us";
 import CouponsDiscounts from "./components/coupon-discount";
 import ContactHome from "./components/contact";
+import HomeFooter from "./components/home-footer";
 
 const HomePage: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
       <WhyChooseUs />
       <CouponsDiscounts />
       <ContactHome />
+      <HomeFooter />
     </div>
   );
 };

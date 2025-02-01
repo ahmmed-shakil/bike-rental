@@ -204,10 +204,10 @@ const BikeDetails: React.FC = () => {
           </div>
           <hr className=" my-4" />
           <h5 className=" text-lg font-semibold mb-4">Customer Reviews</h5>
-          <div className=" mb-4 review p-4 rounded-md relative">
+          <div className=" mb-4 review p-4 rounded-md relative py-10">
             <div className="absolute top-0 right-0 w-full h-full bg-black opacity-30 "></div>
 
-            <ReviewSlider />
+            <ReviewSlider slidesPerPage={2} />
           </div>
         </div>
         <div className=" md:sticky md:top-40">

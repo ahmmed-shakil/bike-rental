@@ -47,7 +47,7 @@ const BikeCard: React.FC<{ bike: Bike }> = ({ bike }) => {
         </div>
         <h3 className="text-lg font-bold mt-1 ">{bike.modelName}</h3>
 
-        <div className="grid grid-cols-2 gap-2 mb-4 mt-2">
+        <div className="grid grid-cols-3 gap-2 mb-4 mt-2">
           <div className="flex items-center gap-2">
             <Users size={16} className="text-gray-500" />
             <span className="text-sm">{bike.seat}</span>

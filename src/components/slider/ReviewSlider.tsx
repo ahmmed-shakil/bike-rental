@@ -1,5 +1,5 @@
 import { Carousel } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../assets/images/customers/smith.webp";
 import { Star } from "lucide-react";
 
@@ -45,19 +45,44 @@ const reviews: Review[] = [
       "Very professional service. The bikes were comfortable and well-maintained. Will definitely rent again!",
   },
 ];
-const ReviewSlider: React.FC = () => {
+
+interface ReviewSliderProps {
+  slidesPerPage?: number;
+}
+
+const ReviewSlider: React.FC<ReviewSliderProps> = ({ slidesPerPage = 1 }) => {
+  const [currentSlidesPerPage, setCurrentSlidesPerPage] =
+    useState(slidesPerPage);
+
+  useEffect(() => {
+    const updateSlidesPerPage = () => {
+      setCurrentSlidesPerPage(window.innerWidth < 768 ? 1 : slidesPerPage);
+    };
+
+    updateSlidesPerPage(); // Set initial value
+    window.addEventListener("resize", updateSlidesPerPage);
+
+    return () => window.removeEventListener("resize", updateSlidesPerPage);
+  }, [slidesPerPage]);
+
   return (
-    <Carousel autoplay effect="scrollx" arrows>
+    <Carousel
+      autoplay
+      infinite
+      effect="scrollx"
+      arrows
+      slidesToShow={currentSlidesPerPage}
+    >
       {reviews.map((review) => (
-        <div key={review.id} className="px-10 pb-8 ">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 min-h-[45vh]">
+        <div key={review.id} className="px-10 pb-8">
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 min-h-[55vh] flex flex-col">
             <div className="flex flex-col items-center mb-4">
               <img
                 src={image || "/placeholder.svg"}
                 alt={review.name}
                 className="rounded-full w-32 h-32"
               />
-              <div className=" mt-3">
+              <div className="mt-3">
                 <h3 className="font-semibold text-xl dark:text-white">
                   {review.name}
                 </h3>
