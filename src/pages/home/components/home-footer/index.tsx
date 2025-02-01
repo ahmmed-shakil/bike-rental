@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import Footer from "../../../../components/shared/footer";
 import FeaturePoint from "./FeaturePoint";
 import {
-  ArrowRightIcon as ArrowRightOutlined,
+  //   ArrowRightIcon as ArrowRightOutlined,
   GlobeIcon as GlobalOutlined,
   HeartIcon as HeartOutlined,
   UnderlineIcon as TeamOutlined,
