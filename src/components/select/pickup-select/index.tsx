@@ -22,7 +22,7 @@ const SelectPickupLocationComponent: React.FC<
       <Select
         // status="warning"
         showSearch
-        className=" h-10 md:h-14 w-full min-w-60 text-lg rounded-lg border-0 outline-0"
+        className=" h-10 md:h-12 w-full min-w-60 text-lg rounded-lg border-0 outline-0"
         allowClear
         placeholder={placeholder}
         optionFilterProp="label"

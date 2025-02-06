@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
   };
 
   const disabledDate: RangePickerProps["disabledDate"] = (current: Dayjs) => {
-    return current && current < dayjs().endOf("day");
+    return current && current <= dayjs().endOf("day");
   };
 
   return (

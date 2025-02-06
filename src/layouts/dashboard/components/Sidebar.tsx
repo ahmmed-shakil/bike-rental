@@ -1,9 +1,9 @@
 import type React from "react";
 // import { sidebarRoutes, sidebarRoutesAdmin } from "../../../routes";
-import { sidebarRoutesAdmin } from "../../../routes";
 import { useLocation, useNavigate } from "react-router";
 import { ConfigProvider, Menu, MenuTheme } from "antd";
 import { useGetCurrentTheme } from "../../../hooks/useGetCurrentTheme";
+import { sidebarRoutes } from "../../../routes";
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
   const theme = useGetCurrentTheme() as MenuTheme;
 
   const handleMenuClick = (item: { key: string }) => {
-    const route = sidebarRoutesAdmin
+    const route = sidebarRoutes
       .flatMap((route) => [route, ...(route.children || [])])
       .find((r) => r.key === item.key);
     if (route?.path) {
@@ -71,7 +71,7 @@ const Sidebar: React.FC = () => {
             }`}
             onClick={handleMenuClick}
           >
-            {sidebarRoutesAdmin.map((route) =>
+            {sidebarRoutes.map((route) =>
               route.children ? (
                 <Menu.SubMenu key={route.key} title={route.title}>
                   {route.children.map((child) => (

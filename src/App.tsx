@@ -9,9 +9,9 @@ import ProfilePage from "./pages/profile";
 import Dashboard from "./pages/admin/dashboard";
 import BookingsPage from "./pages/admin/bookings";
 import BrandsPage from "./pages/admin/brands";
-import BikesPage from "./pages/admin/bikes";
 import ReviewsListPage from "./pages/admin/reviews";
 import LedgerPage from "./pages/admin/ledger";
+import BikesPage from "./pages/bikes";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="bikes" element={<BikesPage />} />
           <Route path="/bike-details/:id" element={<BikeDetails />} />
         </Route>
         <Route path="/dashboard/*" element={<DashboardLayout />}>

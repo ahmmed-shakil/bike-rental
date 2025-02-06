@@ -7,7 +7,7 @@ import React from "react";
 const NavbarHome: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <div className=" fixed top-0 left-0 w-full py-3 md:py-5 bg-black bg-opacity-50  z-20">
+    <div className=" fixed top-0 left-0 w-full py-3 md:py-5 bg-slate-700 bg-opacity-50  z-20">
       <div className="hidden md:grid grid-cols-2 items-center justify-between gap-3 max-w-7xl mx-auto">
         {/* LOGO */}
         <h6

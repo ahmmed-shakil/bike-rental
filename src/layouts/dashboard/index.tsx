@@ -5,7 +5,7 @@ import DashboardHeader from "./components/DashboardHeader";
 import { NavLink, Outlet } from "react-router";
 import Sidebar from "./components/Sidebar";
 import React from "react";
-import { sidebarRoutesAdmin } from "../../routes";
+import { sidebarRoutes } from "../../routes";
 
 const DashboardLayout = () => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -43,7 +43,7 @@ const DashboardLayout = () => {
         >
           {/* <Sidebar /> */}
           <div className="flex flex-col items-center text-md md:text-lg">
-            {sidebarRoutesAdmin?.map(
+            {sidebarRoutes?.map(
               (r: { title: string; path: string }, i: number) => (
                 <NavLink
                   key={i}

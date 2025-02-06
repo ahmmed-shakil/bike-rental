@@ -10,8 +10,8 @@ import {
   UnderlineIcon as TeamOutlined,
 } from "lucide-react";
 import ImageWithTooltip from "./ImageWithTooltip";
-import bike1 from "../../../../assets/images/home_footer/bike_1.jpg";
-import bike2 from "../../../../assets/images/home_footer/bike_2.jpg";
+import bike1 from "../../../../assets/images/home_footer/bike_1.webp";
+import bike2 from "../../../../assets/images/home_footer/bike_2.webp";
 const HomeFooter: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [imageOrder, setImageOrder] = useState([0, 1]);
@@ -21,13 +21,13 @@ const HomeFooter: React.FC = () => {
 
   const initialImages = [
     {
-      src: bike1,
+      src: bike2,
       alt: "Child riding a bicycle to school",
       tooltip: "Empowering education through mobility",
       rotate: "-rotate-6",
     },
     {
-      src: bike2,
+      src: bike1,
       alt: "Volunteers distributing bicycles",
       tooltip: "Our team making a difference",
       rotate: "rotate-3",
@@ -82,7 +82,7 @@ const HomeFooter: React.FC = () => {
   return (
     <div className="relative flex flex-col justify-between snap-section">
       <div className="max-w-7xl mx-auto px-4 flex-grow flex items-center pt-28">
-        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-8 mb-20 flex flex-col lg:flex-row items-center justify-center shadow-2xl">
+        <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg p-8 mb-20 flex flex-col lg:flex-row items-center justify-center shadow-2xl">
           <div className="lg:w-1/2">
             <h2 className="text-2xl font-bold mb-4 animate-pulse">
               Ride for a Brighter Future
@@ -157,7 +157,7 @@ const HomeFooter: React.FC = () => {
                       src={image.src || "/placeholder.svg"}
                       alt={image.alt}
                       tooltip={image.tooltip}
-                      className="w-full transition-transform duration-300"
+                      className="w-full transition-transform duration-300 shadow-xl"
                     />
                   </div>
                 );

@@ -2,6 +2,7 @@ import React from "react";
 import Title from "../../../../components/title/Title";
 import BikeCard from "../../../../components/cards/BikeCard";
 import { LucideArrowUpRightFromSquare } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const FeaturedBikes: React.FC = () => {
   type Bike = {
@@ -91,19 +92,28 @@ const FeaturedBikes: React.FC = () => {
       topSpeed: "200 km/h",
     },
   ];
+
+  const navigate = useNavigate();
   return (
-    <div className=" snap-section py-10 md:pt-28 max-w-7xl mx-auto flex flex-col justify-center px-4">
-      <div className=" flex items-center justify-between">
-        <Title title="Featured Bikes" />
-        <button className=" bg-primary flex text-white p-2 rounded-md gap-3 px-3 hover:bg-orange-600">
-          <span>View All</span>
-          <LucideArrowUpRightFromSquare />
-        </button>
-      </div>
-      <div className=" mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4">
-        {bikes?.map((bike: Bike, i: number) => (
-          <BikeCard key={i} bike={bike} />
-        ))}
+    <div className=" snap-section ">
+      <div
+        className={` py-10 md:pt-28 max-w-7xl mx-auto flex flex-col justify-center px-4`}
+      >
+        <div className=" flex items-center justify-between">
+          <Title title="Featured Bikes" />
+          <button
+            onClick={() => navigate("/bikes")}
+            className=" bg-primary flex text-white p-2 rounded-md gap-3 px-3 hover:bg-orange-600"
+          >
+            <span>View All</span>
+            <LucideArrowUpRightFromSquare />
+          </button>
+        </div>
+        <div className=" mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4">
+          {bikes?.map((bike: Bike, i: number) => (
+            <BikeCard key={i} bike={bike} />
+          ))}
+        </div>
       </div>
     </div>
   );

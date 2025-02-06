@@ -13,3 +13,9 @@ export type TBooking = {
   dateRange: string;
   advanceAmount: boolean;
 };
+
+export interface Benefit {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
