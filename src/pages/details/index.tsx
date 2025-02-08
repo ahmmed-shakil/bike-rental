@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import image from "../../assets/images/models/ktm.webp";
 import image2 from "../../assets/images/brands/honda.jpg";
 import { DatePickerProps, Image } from "antd";
@@ -22,6 +22,7 @@ import { RangePickerProps } from "antd/es/date-picker";
 const BikeDetails: React.FC = () => {
   const { id } = useParams();
   console.log("🚀 ~ id:", id);
+  const navigate = useNavigate();
   const images = [
     {
       url: image,
@@ -254,8 +255,11 @@ const BikeDetails: React.FC = () => {
                 <h6 className=" flex justify-end">3200</h6>
               </div>
             </div>
-            <button className=" bg-primary w-full p-2 rounded-md mt-4 text-white hover:scale-105 transition-all duration-100 ease-in">
-              Book Now
+            <button
+              onClick={() => navigate("/checkout")}
+              className=" bg-primary w-full p-2 rounded-md mt-4 text-white hover:scale-105 transition-all duration-100 ease-in"
+            >
+              Proceed to checkout
             </button>
             {/* Form */}
           </div>

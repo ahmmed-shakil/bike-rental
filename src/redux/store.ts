@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { paymentApi } from "./payment/paymentApi";
 
 // const persistConfig = {
 //   key: "auth",
@@ -31,6 +32,7 @@ const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
+    [paymentApi.reducerPath]: paymentApi.reducer,
     auth: persistedAuthReducer,
     theme: persistedThemeReducer,
   },
@@ -39,7 +41,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(baseApi.middleware),
+    })
+      .concat(baseApi.middleware)
+      .concat(paymentApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

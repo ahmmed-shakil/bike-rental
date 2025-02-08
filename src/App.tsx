@@ -12,6 +12,8 @@ import BrandsPage from "./pages/admin/brands";
 import ReviewsListPage from "./pages/admin/reviews";
 import LedgerPage from "./pages/admin/ledger";
 import BikesPage from "./pages/bikes";
+import CheckoutPage from "./pages/checkout";
+import PaymentSuccess from "./pages/payment/payment-success";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="bikes" element={<BikesPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
           <Route path="/bike-details/:id" element={<BikeDetails />} />
         </Route>
         <Route path="/dashboard/*" element={<DashboardLayout />}>
@@ -33,6 +36,8 @@ function App() {
           <Route path="manage-reviews" element={<ReviewsListPage />} />
           <Route path="ledger" element={<LedgerPage />} />
         </Route>
+        <Route path="success" element={<PaymentSuccess />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </>
   );
