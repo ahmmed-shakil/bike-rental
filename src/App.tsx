@@ -6,11 +6,10 @@ import BikeDetails from "./pages/details";
 import DashboardLayout from "./layouts/dashboard";
 import ProfilePage from "./pages/profile";
 // import MyRentals from "./pages/my-rentals";
-import Dashboard from "./pages/admin/dashboard";
-import BookingsPage from "./pages/admin/bookings";
-import BrandsPage from "./pages/admin/brands";
-import ReviewsListPage from "./pages/admin/reviews";
-import LedgerPage from "./pages/admin/ledger";
+import Dashboard from "./pages/dashboard/dashboard";
+import BookingsPage from "./pages/dashboard/bookings";
+import ReviewsListPage from "./pages/dashboard/reviews";
+import LedgerPage from "./pages/dashboard/ledger";
 import BikesPage from "./pages/bikes";
 import CheckoutPage from "./pages/checkout";
 import PaymentSuccess from "./pages/payment/payment-success";
@@ -31,8 +30,6 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="manage-bookings" element={<BookingsPage />} />
-          <Route path="manage-brands" element={<BrandsPage />} />
-          <Route path="manage-bikes" element={<BikesPage />} />
           <Route path="manage-reviews" element={<ReviewsListPage />} />
           <Route path="ledger" element={<LedgerPage />} />
         </Route>

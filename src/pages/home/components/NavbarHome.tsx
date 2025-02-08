@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router";
 import { routes } from "../../../routes";
 import MobileMenuDrawer from "../../../components/shared/menu-drawer";
 import React from "react";
+import ProfileAvatar from "../../../components/shared/profile-avatar";
 
 const NavbarHome: React.FC = () => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const NavbarHome: React.FC = () => {
               {r.title}
             </NavLink>
           ))}
-
           <Switcher />
+          <ProfileAvatar />
         </div>
         {/* Routes */}
       </div>

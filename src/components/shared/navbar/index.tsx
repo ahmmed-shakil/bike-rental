@@ -2,6 +2,7 @@ import Switcher from "../../dark-mode";
 import { NavLink, useNavigate } from "react-router";
 import { routes } from "../../../routes";
 import MobileMenuDrawer from "../menu-drawer";
+import ProfileAvatar from "../profile-avatar";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Navbar = () => {
           ))}
 
           <Switcher />
+          <ProfileAvatar />
         </div>
         {/* Routes */}
       </div>

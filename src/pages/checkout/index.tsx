@@ -4,15 +4,13 @@ import UserCard from "../../components/cards/UserCard";
 import { DatePickerProps } from "antd";
 import { RangePickerProps } from "antd/es/date-picker";
 import dayjs, { Dayjs } from "dayjs";
-import { Calendar, MapPin, Ticket } from "lucide-react";
-import SelectPickupLocationComponent from "../../components/select/pickup-select";
-import DateRangePickerComponent from "../../components/date-picker/range-picker";
 import { useInitiatePaymentMutation } from "../../redux/payment/paymentApi";
 import {
   aamarpay_signature_key,
   aamarpay_store_id,
 } from "../../config/aamarpay";
 import generateTransactionId from "../../utils/generateTransactionId";
+import CheckoutSummary from "../../components/checkout-summary";
 
 const CheckoutPage: React.FC = () => {
   const userData = {
@@ -170,98 +168,27 @@ const CheckoutPage: React.FC = () => {
             developing countries, enabling them to access education more easily.
           </div>
         </div>
-        <div className="md:sticky md:top-40">
-          <div className="shadow-md border rounded-md p-3">
-            <h6 className="mb-2 flex items-center gap-1 font-semibold">
-              <MapPin />
-              <span>Pickup Location</span>
-            </h6>
-            <SelectPickupLocationComponent
-              value={destination}
-              onChange={onChange}
-              onSearch={onSearch}
-              placeholder="Select Pickup Location"
-              options={[
-                { value: "jack", label: "Jack" },
-                { value: "lucy", label: "Lucy" },
-                { value: "tom", label: "Tom" },
-              ]}
-            />
-            <h6 className="mb-2 mt-4 flex items-center gap-1 font-semibold">
-              <Calendar />
-              <span>Date Range</span>
-            </h6>
-            <DateRangePickerComponent
-              value={dateRange}
-              onChange={onRangeChange}
-              disabledDate={disabledDate}
-            />
-
-            {/* Coupon Input Section */}
-            <div className="mt-4">
-              <h6 className="mb-2 flex items-center gap-1 font-semibold">
-                <Ticket className="h-4 w-4" />
-                <span>Have a coupon?</span>
-              </h6>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={couponCode}
-                  onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                  placeholder="Enter coupon code"
-                  className="flex-1 p-2 border rounded-md text-sm"
-                />
-                <button
-                  onClick={validateCoupon}
-                  className="bg-primary px-4 rounded-md text-white hover:bg-orange-600 transition-all duration-100 ease-in"
-                >
-                  Apply
-                </button>
-              </div>
-              {couponError && (
-                <p className="text-red-500 text-xs mt-1">{couponError}</p>
-              )}
-              {couponSuccess && (
-                <p className="text-green-500 text-xs mt-1">{couponSuccess}</p>
-              )}
-            </div>
-
-            {/* Price Breakdown */}
-            <div className="mt-4 space-y-2">
-              <div className="grid grid-cols-2 items-center justify-between">
-                <h6>
-                  {pricePerDay} x {getDays()} days
-                </h6>
-                <h6 className="flex justify-end">{getSubtotal()}</h6>
-              </div>
-              <div className="grid grid-cols-2 items-center justify-between">
-                <h6>Tax (10%)</h6>
-                <h6 className="flex justify-end">{getTax()}</h6>
-              </div>
-              {discount > 0 && (
-                <div className="grid grid-cols-2 items-center justify-between text-green-600">
-                  <h6>Discount</h6>
-                  <h6 className="flex justify-end">-{discount}</h6>
-                </div>
-              )}
-              <hr className="my-1" />
-              <div className="grid grid-cols-2 items-center justify-between font-semibold">
-                <h6>Total</h6>
-                <h6 className="flex justify-end">{getTotal()}</h6>
-              </div>
-            </div>
-
-            <button
-              onClick={handlePayment}
-              className="bg-primary w-full p-2 rounded-md mt-4 text-white hover:bg-orange-600 transition-all duration-100 ease-in"
-            >
-              Confirm Booking
-            </button>
-            <p className="text-xs mt-2">
-              Please pay 250 advance booking amount to confirm your booking!
-            </p>
-          </div>
-        </div>
+        <CheckoutSummary
+          destination={destination}
+          onChange={onChange}
+          onSearch={onSearch}
+          dateRange={dateRange}
+          onRangeChange={onRangeChange}
+          disabledDate={disabledDate}
+          couponCode={couponCode}
+          setCouponCode={setCouponCode}
+          validateCoupon={validateCoupon}
+          couponError={couponError}
+          couponSuccess={couponSuccess}
+          discount={discount}
+          pricePerDay={pricePerDay}
+          getDays={getDays}
+          getSubtotal={getSubtotal}
+          getTax={getTax}
+          getTotal={getTotal}
+          handleClick={handlePayment}
+          btnText="Proceed to pay"
+        />
       </div>
     </div>
   );

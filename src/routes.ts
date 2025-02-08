@@ -32,7 +32,7 @@ export const sidebarRoutes: Route[] = [
   },
   {
     key: "bookings",
-    title: "Booking History",
+    title: "Manage Bookings",
     path: "/dashboard/manage-bookings",
   },
   {

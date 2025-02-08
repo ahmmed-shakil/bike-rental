@@ -4,6 +4,7 @@ import React from "react";
 import { routes } from "../../../routes";
 import { NavLink, useNavigate } from "react-router";
 import Switcher from "../../dark-mode";
+import ProfileAvatar from "../profile-avatar";
 
 const MobileMenuDrawer: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -33,6 +34,7 @@ const MobileMenuDrawer: React.FC = () => {
         </Col>
         <Col span={12} className=" flex justify-end text-white gap-4">
           <Switcher showWHite={true} />
+
           <BarsOutlined className=" text-3xl" onClick={showLoading} />
         </Col>
       </Row>
@@ -40,10 +42,13 @@ const MobileMenuDrawer: React.FC = () => {
         closable
         destroyOnClose
         title={
-          <h6 className=" font-bold text-2xl md:text-4xl dark:text-white">
-            <span>Throttle</span>
-            <span className=" text-primary">X</span>
-          </h6>
+          <div className=" flex  justify-between items-center">
+            <h6 className=" font-bold text-2xl md:text-4xl dark:text-white">
+              <span>Throttle</span>
+              <span className=" text-primary">X</span>
+            </h6>
+            <ProfileAvatar />
+          </div>
         }
         placement="right"
         size="default"
