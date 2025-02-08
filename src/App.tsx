@@ -13,8 +13,24 @@ import LedgerPage from "./pages/dashboard/ledger";
 import BikesPage from "./pages/bikes";
 import CheckoutPage from "./pages/checkout";
 import PaymentSuccess from "./pages/payment/payment-success";
+import CouponWheel from "./components/coupon-wheel";
+import { useEffect, useState } from "react";
+import { Modal } from "antd";
 
 function App() {
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsModalVisible(true);
+    }, 10000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
   return (
     <>
       <Routes>
@@ -36,6 +52,16 @@ function App() {
         <Route path="success" element={<PaymentSuccess />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
+      <Modal
+        visible={isModalVisible}
+        onCancel={handleModalClose}
+        footer={null}
+        width={400}
+        centered
+        title="Spin the wheel to earn exciting discount!"
+      >
+        <CouponWheel />
+      </Modal>
     </>
   );
 }
