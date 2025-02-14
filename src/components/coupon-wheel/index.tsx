@@ -1,6 +1,7 @@
-import { Button } from "antd";
 import { useState, useRef } from "react";
 import { toast } from "react-toastify";
+import { ArrowUpCircle } from "lucide-react";
+import { Button } from "antd";
 
 const coupons = [
   { name: "10% OFF", color: "bg-red-500" },
@@ -14,7 +15,7 @@ const coupons = [
 export default function CouponWheel() {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState("");
-  const containerRef = useRef<HTMLDivElement>(null);
+  const wheelRef = useRef<HTMLDivElement>(null);
 
   const spinWheel = () => {
     if (spinning) return;
@@ -22,21 +23,27 @@ export default function CouponWheel() {
     setSpinning(true);
     setResult("");
 
-    const randomDegrees = Math.floor(Math.random() * 360) + 720; // At least 2 full rotations
+    // Determine the winning coupon first
+    const winningIndex = Math.floor(Math.random() * coupons.length);
+    const winningCoupon = coupons[winningIndex];
+
+    // Calculate the rotation to align the winning coupon with the arrow
+    const segmentAngle = 180 / coupons.length;
+    const rotation = -(winningIndex * segmentAngle + segmentAngle / 2);
+    const extraRotations = 360 * 5; // 5 full rotations for effect
+    const totalRotation = rotation - extraRotations;
+
     const spinDuration = 5000; // 5 seconds
 
-    if (containerRef.current) {
-      containerRef.current.style.transition = `transform ${spinDuration}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
-      containerRef.current.style.transform = `rotate(-${randomDegrees}deg)`;
+    if (wheelRef.current) {
+      wheelRef.current.style.transition = `transform ${spinDuration}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
+      wheelRef.current.style.transform = `rotate(${totalRotation}deg)`;
     }
 
     setTimeout(() => {
       setSpinning(false);
-      const winningIndex = Math.floor(
-        (randomDegrees % 360) / (360 / coupons.length)
-      );
-      setResult(coupons[winningIndex].name);
-      toast.success(`You won ${result}`);
+      setResult(winningCoupon.name);
+      toast.success(`You won ${winningCoupon.name}!`);
     }, spinDuration);
   };
 
@@ -44,7 +51,7 @@ export default function CouponWheel() {
     <div className="flex flex-col items-center justify-center py-8">
       <div className="relative w-72 h-72 mb-8">
         <div
-          ref={containerRef}
+          ref={wheelRef}
           className="absolute w-full h-full rounded-full border-8 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 overflow-hidden"
         >
           <div className="absolute w-full h-full rounded-full shadow-lg">
@@ -60,7 +67,7 @@ export default function CouponWheel() {
                   }}
                 >
                   <div
-                    className="absolute left-5 top-20  text-white font-bold text-sm text-center w-full"
+                    className="absolute left-5 top-20 text-white font-bold text-sm text-center w-full"
                     style={{
                       transform: `skew(-${skew}deg) rotate(${
                         210 / coupons.length
@@ -74,17 +81,21 @@ export default function CouponWheel() {
             })}
           </div>
         </div>
-        {/* Arrow indicator */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-l-[20px] border-r-[20px] border-b-[40px] border-l-transparent border-r-transparent border-b-red-600 z-10"></div>
+        {/* Center arrow indicator */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <ArrowUpCircle className="w-12 h-12 text-red-600" />
+        </div>
       </div>
       <Button
         onClick={spinWheel}
         disabled={spinning}
         className="mb-4"
-        type="default"
+        // variant="default"
+        danger
       >
         {spinning ? "Spinning..." : "Spin"}
       </Button>
+      {result && <p className="text-lg font-bold">You won: {result}</p>}
     </div>
   );
 }
